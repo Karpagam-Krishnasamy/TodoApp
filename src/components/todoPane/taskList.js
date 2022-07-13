@@ -18,9 +18,9 @@ const TabContent = ({ context }) =>
 				<span
 					onClick={ () => context.actions.setEdit(data.name) }
 				>
-					`						{data.name}</span>
+					{data.name}</span>
 				<CloseButton { ...{ ...context, taskId: data.name } }/>
 				<br/>
-				`			</div>));
+			</div>));
 
 export default TabContent;

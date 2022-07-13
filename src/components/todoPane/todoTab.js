@@ -1,14 +1,14 @@
-/* eslint-disable max-len */
 import { React } from 'react';
-import config from '../../core/config';
+import TabContent from './taskList';
+import ClearCompleted from './clearCompleted';
+import SelectAll from './selectAll';
 
-const AllTabs = ({ context }) =>
-	config.tabs.map((data) =>
-		<button
-			key={ data }
-			onClick={ () => context.actions.showTabContent({ tabName: data }) }
-		>
-			{data}
-		</button>);
+const TodoTab = ({ context }) =>
+	<div><TodoTab context={ context }/>
+		<br/>
+		<SelectAll context={ context }/>
+		<TabContent context={ context }/>
+		<ClearCompleted context={ context }/>
+	</div>;
 
-export default AllTabs;
+export default TodoTab;
