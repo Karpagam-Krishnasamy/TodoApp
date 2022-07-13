@@ -1,16 +1,19 @@
 import { React } from 'react';
 
-const SelectAll = ({ context }) =>
-	<div>
+const SelectAll = ({ context }) => {
+	const { state: { toggleAll }, actions } = context;
+
+	return <div>
 		<input
 			type="checkbox"
-			checked={ context.state.toggleAll }
+			checked={ toggleAll }
 			onChange={ () => {
-				context.actions.selectAll(context.state.toggleAll);
-				context.actions.showTabContent({ tabName: 'All' });
+				actions.selectAll(toggleAll);
+				actions.showTabContent({ tabName: 'All' });
 			} }
 		/>
 		<span>SelectAll</span>
 	</div>;
+};
 
 export default SelectAll;
