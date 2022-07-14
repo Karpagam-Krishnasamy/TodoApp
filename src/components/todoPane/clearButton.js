@@ -3,7 +3,7 @@ import React from 'react';
 const ClearButton = ({ actions, taskId }) =>
 	<button
 		onClick={ () => {
-			actions.closeButton(taskId);
+			actions.clearButton(taskId);
 			actions.showTabContent({ tabName: 'All' });
 		} }
 	>X</button>;

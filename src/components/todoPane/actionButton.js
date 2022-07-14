@@ -1,17 +1,10 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-import { React } from 'react';
+import AddButton from './addButton';
+import UpdateButton from './updateButton';
 
 const ActionButton = ({ context }) => {
-	const { state, actions } = context;
+	const { state: { setEdit }} = context;
 
-	return <button
-		disabled={ (state.input === '') }
-		onClick={ () => {
-			actions.addTodoTask(context);
-			actions.showTabContent({ tabName: 'All' });
-		} }
-	       >
-		{state.buttonName}</button>;
+	return !setEdit ? AddButton({ context }) : UpdateButton({ context });
 };
 
 export default ActionButton;

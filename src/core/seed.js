@@ -1,9 +1,9 @@
 const seed = {
 	input: '',
-	task: [],
+	todoList: [],
 	filteredTask: [],
 	toggleAll: false,
-	buttonName: 'Add',
+	setEdit: false,
 	editId: '',
 };
 

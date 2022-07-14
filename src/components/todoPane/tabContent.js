@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { React } from 'react';
 import CheckBox from './checkBox';
 import ClearButton from './clearButton';

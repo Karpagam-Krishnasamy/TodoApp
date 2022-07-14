@@ -5,7 +5,7 @@ import SelectAll from './selectAll';
 import Tab from './tab';
 
 const TodoTab = ({ context }) =>
-	(context.state.task.length !== 0
+	(context.state.todoList.length !== 0
 		? <div>
 			<Tab context={ context }/>
 			<SelectAll context={ context }/>

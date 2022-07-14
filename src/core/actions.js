@@ -1,50 +1,59 @@
 import updateTask from '../services/addTask';
+import clearTask from '../services/clearTask';
+import filterTask from '../services/filterTask';
+import selectTask from '../services/selectTask';
 
 const setInput = ({ data }) => ({
 	input: data,
 });
 
 const addTodoTask = (context) => ({
-	task: updateTask.addTask(context),
+	todoList: updateTask.Add(context),
 	input: '',
-	buttonName: 'Add',
+});
+
+const updateTodoTask = (context) => ({
+	todoList: updateTask.Update(context),
+	input: '',
+	setEdit: false,
+});
+
+const setEdit = ({ data }) => ({
+	setEdit: true,
+	input: data.name,
+	editId: data.id,
 });
 
 const showTabContent = (context) => ({
-	filteredTask: updateTask.showTask(context),
+	filteredTask: filterTask.viewTask(context),
 });
 
 const toggleTodo = (context) => ({
-	task: updateTask.editTodoTask(context),
+	todoList: selectTask.selectTask(context),
 });
 
 const selectAll = (context) => ({
-	task: updateTask.selectAllTask(context),
+	todoList: selectTask.selectAllTask(context),
 	toggleAll: !context.state.toggleAll,
 });
 
 const clearCompleted = (context) => ({
-	task: updateTask.clearTask(context),
+	todoList: clearTask.clearTask(context),
 });
 
-const closeButton = (context) => ({
-	task: updateTask.cancelButton(context),
-});
-
-const setEdit = ({ data }) => ({
-	buttonName: 'Update',
-	input: data.name,
-	editId: data.id,
+const clearButton = (context) => ({
+	todoList: clearTask.clearButton(context),
 });
 
 const actions = {
 	setInput,
 	clearCompleted,
 	addTodoTask,
+	updateTodoTask,
 	selectAll,
 	showTabContent,
 	toggleTodo,
-	closeButton,
+	clearButton,
 	setEdit,
 };
 
