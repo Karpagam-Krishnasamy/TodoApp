@@ -4,7 +4,7 @@ const seed = {
 	filteredTask: [],
 	toggleAll: false,
 	buttonName: 'Add',
-	editText: '',
+	editId: '',
 };
 
 export default seed;

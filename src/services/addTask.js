@@ -1,18 +1,18 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
+import { rndString } from '@laufire/utils/random';
+import config from '../core/config';
 const updateTask = {
 	addTask: ({ state }) =>
 		updateTask[state.buttonName](state),
 	Add: ({ input, task }) =>
 		[...task,
 			{
+				id: rndString(config.idLength),
 				name: input,
 				isCompleted: false,
 			}],
-	Update: ({ input, task, editText }) =>
+	Update: ({ input, task, editId }) =>
 		task.map((todo) =>
-			(todo.name === editText
+			(todo.id === editId
 				? {
 					...todo,
 					name: input,
@@ -20,7 +20,7 @@ const updateTask = {
 				: todo)),
 	editTodoTask: ({ state: { task }, data }) =>
 		task.map((todo) =>
-			(todo.name === data.name
+			(todo.id === data.id
 				? {
 					...todo,
 					isCompleted: data.isCompleted,
@@ -34,7 +34,7 @@ const updateTask = {
 	clearTask: ({ state: { task }}) =>
 		task.filter((todo) => todo.isCompleted === false),
 	cancelButton: ({ state: { task }, data: taskId }) =>
-		task.filter((todo) => todo.name !== taskId),
+		task.filter((todo) => todo.id !== taskId),
 	selectAllTask: ({ state: { task }, data }) =>
 		task.map((todo) =>
 			({

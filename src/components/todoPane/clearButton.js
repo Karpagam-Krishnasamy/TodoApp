@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CloseButton = ({ actions, taskId }) =>
+const ClearButton = ({ actions, taskId }) =>
 	<button
 		onClick={ () => {
 			actions.closeButton(taskId);
@@ -8,4 +8,4 @@ const CloseButton = ({ actions, taskId }) =>
 		} }
 	>X</button>;
 
-export default CloseButton;
+export default ClearButton;

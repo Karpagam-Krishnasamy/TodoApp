@@ -5,6 +5,7 @@ const ActionButton = ({ context }) => {
 	const { state, actions } = context;
 
 	return <button
+		disabled={ (state.input === '') }
 		onClick={ () => {
 			actions.addTodoTask(context);
 			actions.showTabContent({ tabName: 'All' });

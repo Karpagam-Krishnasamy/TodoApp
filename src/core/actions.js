@@ -33,8 +33,8 @@ const closeButton = (context) => ({
 
 const setEdit = ({ data }) => ({
 	buttonName: 'Update',
-	input: data,
-	editText: data,
+	input: data.name,
+	editId: data.id,
 });
 
 const actions = {
