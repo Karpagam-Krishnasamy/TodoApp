@@ -46,11 +46,16 @@ const clearButton = (context) => ({
 	todoList: clearTask.clearButton(context),
 });
 
+const removeTask = (context) => ({
+	taskList: clearTask.removeTask(context),
+});
+
 const generateTask = (context) => ({
 	taskList: taskGenerator.getTasks(context),
 });
 
 const actions = {
+	removeTask,
 	setInput,
 	clearCompleted,
 	addTodoTask,

@@ -1,5 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable no-console */
 import { React } from 'react';
 
 const AddButton = ({ actions, data }) =>
@@ -8,8 +6,8 @@ const AddButton = ({ actions, data }) =>
 			actions.setInput(data.name);
 			actions.addTodoTask();
 			actions.showTabContent({ tabName: 'All' });
+			actions.removeTask(data.id);
 		} }
-	>
-		Add</button>;
+	>+</button>;
 
 export default AddButton;
