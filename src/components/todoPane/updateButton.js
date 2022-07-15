@@ -2,13 +2,13 @@
 import { React } from 'react';
 
 const UpdateButton = ({ context }) => {
-	const { state, actions } = context;
+	const { state: { filter, input }, actions } = context;
 
 	return <button
-		disabled={ (state.input === '') }
+		disabled={ (input === '') }
 		onClick={ () => {
 			actions.updateTodoTask(context);
-			actions.showTabContent({ tabName: 'All' });
+			actions.showTabContent({ tabName: filter });
 		} }
 	       >
 		Update</button>;

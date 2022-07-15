@@ -19,14 +19,15 @@ const updateTodoTask = (context) => ({
 	setEdit: false,
 });
 
+const showTabContent = (context) => ({
+	filter: context.data.tabName,
+	filteredTask: filterTask.viewTask(context),
+});
+
 const setEdit = ({ data }) => ({
 	setEdit: true,
 	input: data.name,
 	editId: data.id,
-});
-
-const showTabContent = (context) => ({
-	filteredTask: filterTask.viewTask(context),
 });
 
 const toggleTodo = (context) => ({

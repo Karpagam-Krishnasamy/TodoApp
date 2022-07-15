@@ -1,11 +1,11 @@
 import { React } from 'react';
 
-const AddButton = ({ actions, data }) =>
+const AddButton = ({ actions, data, state }) =>
 	<button
 		onClick={ () => {
 			actions.setInput(data.name);
 			actions.addTodoTask();
-			actions.showTabContent({ tabName: 'All' });
+			actions.showTabContent({ tabName: state.filter });
 			actions.removeTask(data.id);
 		} }
 	>+</button>;

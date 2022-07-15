@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-mixed-spaces-and-tabs */
 import { React } from 'react';
 
@@ -9,8 +8,7 @@ const AddButton = ({ context }) => {
 		disabled={ (state.input === '') }
 		onClick={ () => {
 			actions.addTodoTask(context);
-			actions.showTabContent({ tabName: 'All' });
-			console.log(context);
+			actions.showTabContent({ tabName: state.filter });
 		} }
 	       >
 		Add</button>;

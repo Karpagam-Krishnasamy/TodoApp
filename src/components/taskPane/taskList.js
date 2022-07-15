@@ -3,7 +3,7 @@ import AddButton from '../taskPane/addButton';
 import RemoveButton from './removeButton';
 
 const TaskList = ({ context }) =>
-	context.state.taskList.map((task) =>
+	context.state.taskList?.map((task) =>
 		<div key={ task.id }>
 			<span>
 				{task.name}

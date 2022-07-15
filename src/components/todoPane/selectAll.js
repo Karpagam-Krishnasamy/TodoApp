@@ -1,7 +1,7 @@
 import { React } from 'react';
 
 const SelectAll = ({ context }) => {
-	const { state: { toggleAll }, actions } = context;
+	const { state: { toggleAll, filter }, actions } = context;
 
 	return <div>
 		<input
@@ -9,7 +9,7 @@ const SelectAll = ({ context }) => {
 			checked={ toggleAll }
 			onChange={ () => {
 				actions.selectAll(toggleAll);
-				actions.showTabContent({ tabName: 'All' });
+				actions.showTabContent({ tabName: filter });
 			} }
 		/>
 		<span>SelectAll</span>
