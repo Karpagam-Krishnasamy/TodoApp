@@ -6,9 +6,9 @@ import TodoTask from './todoTaskName';
 
 const TabContent = ({ context }) =>
 	updateTask.displayTask(context).map((data) =>
-		<div key={ data.id }>
-			<CheckBox { ...{ ...context, data } }/>
-			<TodoTask { ...{ ...context, data } }/>
+		<div key={ data.id } className="display-left">
+			<CheckBox { ...{ ...context, data } }/>&nbsp;
+			<TodoTask { ...{ ...context, data } }/>&nbsp;&nbsp;
 			<ClearButton { ...{ ...context, taskId: data.id } }/>
 			<br/>
 		</div>);

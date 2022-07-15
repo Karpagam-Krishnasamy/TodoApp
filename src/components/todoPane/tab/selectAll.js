@@ -3,7 +3,7 @@ import { React } from 'react';
 const SelectAll = ({ context }) => {
 	const { state: { toggleAll, filter }, actions } = context;
 
-	return <div>
+	return <div className="left-align">
 		<input
 			type="checkbox"
 			checked={ toggleAll }
