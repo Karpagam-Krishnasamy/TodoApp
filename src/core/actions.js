@@ -16,7 +16,7 @@ const addTodoTask = (context) => ({
 const updateTodoTask = (context) => ({
 	todoList: updateTask.Update(context),
 	input: '',
-	setEdit: false,
+	editId: '',
 });
 
 const showTabContent = (context) => ({
@@ -25,7 +25,6 @@ const showTabContent = (context) => ({
 });
 
 const setEdit = ({ data }) => ({
-	setEdit: true,
 	input: data.name,
 	editId: data.id,
 });

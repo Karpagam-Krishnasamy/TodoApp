@@ -15,6 +15,8 @@ const updateTask = {
 					name: input,
 				}
 				: todo)),
+	displayTask: ({ state: { filteredTask }}) =>
+		(filteredTask.length === 0 ? [] : filteredTask),
 };
 
 export default updateTask;
