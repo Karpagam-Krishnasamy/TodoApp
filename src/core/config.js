@@ -1,8 +1,8 @@
 const config = {
-	totalTask: 0,
 	tabs: ['All', 'Active', 'Completed'],
-	idLength: 5,
-	taskCount: 1,
+	id: 5,
+	timeDelay: 100,
+	timeOut: 1000,
 };
 
 export default config;

@@ -1,10 +1,9 @@
 import { rndString } from '@laufire/utils/random';
-import config from '../core/config';
 const updateTask = {
-	Add: ({ state: { input, todoList }}) =>
+	Add: ({ state: { input, todoList }, config: { idLength }}) =>
 		[...todoList,
 			{
-				id: rndString(config.idLength),
+				id: rndString(idLength),
 				name: input,
 				isCompleted: false,
 			}],

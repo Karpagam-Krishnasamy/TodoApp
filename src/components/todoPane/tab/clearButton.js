@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ClearButton = ({ actions, taskId, state }) =>
+const ClearButton = ({ actions, taskId, state: { filter }}) =>
 	<button
 		onClick={ () => {
 			actions.clearButton(taskId);
-			actions.showTabContent({ tabName: state.filter });
+			actions.showTabContent({ tabName: filter });
 		} }
 	>X</button>;
 

@@ -1,8 +1,8 @@
 import { React } from 'react';
 import Header from './header';
-import Input from './input';
-import ActionButton from './actionButton';
-import TodoTab from './todoTab';
+import Input from './input/input';
+import ActionButton from './input/actionButton';
+import TodoTab from './tab/todoTab';
 
 const todoPane = ({ context }) =>
 	<div className="col-1">

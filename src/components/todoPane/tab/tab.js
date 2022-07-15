@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
 import { React } from 'react';
-import config from '../../core/config';
+import config from '../../../core/config';
 
 const Tab = ({ context }) =>
 	config.tabs.map((data) =>

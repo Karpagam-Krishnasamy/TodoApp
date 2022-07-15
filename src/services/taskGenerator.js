@@ -1,20 +1,18 @@
 /* eslint-disable prefer-template */
-/* eslint-disable no-magic-numbers */
 import { rndString } from '@laufire/utils/random';
 import faker from 'faker';
-import config from '../core/config';
 
 const taskGenerator = {
-	getTasks: ({ state: { taskList }}) => {
-		const i = setInterval(() =>
-			taskGenerator.getRnd(taskList)
-		, 100);
+	getTasks: ({ state: { taskList }, config: { timeDelay, timeOut, id }}) => {
+		const interval = setInterval(() =>
+			taskGenerator.getTask(taskList, id)
+		, timeDelay);
 
-		setTimeout(() => clearInterval(i), 1000);
+		setTimeout(() => clearInterval(interval), timeOut);
 		return taskList;
 	},
-	getRnd: (taskList) =>
-		taskList.push({ id: rndString(config.idLength),
+	getTask: (taskList, id) =>
+		taskList.push({ id: rndString(id),
 			name: taskGenerator
 				.formatTask(faker.hacker.verb() + ' ' + faker.hacker.noun()) }),
 	formatTask: (text) =>
