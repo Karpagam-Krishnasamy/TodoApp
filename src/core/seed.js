@@ -5,6 +5,7 @@ const seed = {
 	toggleAll: false,
 	setEdit: false,
 	editId: '',
+	taskList: [],
 };
 
 export default seed;

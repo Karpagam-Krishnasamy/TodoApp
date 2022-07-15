@@ -2,6 +2,7 @@ import updateTask from '../services/addTask';
 import clearTask from '../services/clearTask';
 import filterTask from '../services/filterTask';
 import selectTask from '../services/selectTask';
+import taskGenerator from '../services/taskGenerator';
 
 const setInput = ({ data }) => ({
 	input: data,
@@ -45,6 +46,10 @@ const clearButton = (context) => ({
 	todoList: clearTask.clearButton(context),
 });
 
+const generateTask = (context) => ({
+	taskList: taskGenerator.getTasks(context),
+});
+
 const actions = {
 	setInput,
 	clearCompleted,
@@ -55,6 +60,7 @@ const actions = {
 	toggleTodo,
 	clearButton,
 	setEdit,
+	generateTask,
 };
 
 export default actions;
