@@ -2,15 +2,14 @@
 /* eslint-disable prefer-template */
 import { rndString } from '@laufire/utils/random';
 import faker from 'faker';
-import actions from '../core/actions';
 
 const taskGenerator = {
-	getTasks: (context) => {
+	getTasks: ({ actions, config: { timeDelay, timeOut }}) => {
 		const interval = setInterval(() =>
-			actions.generateTask(context)
-		, 2000);
+			actions.generateTask()
+		, timeDelay);
 
-		setTimeout(() => clearInterval(interval), 10000);
+		setTimeout(() => clearInterval(interval), timeOut);
 	},
 	getTask: ({ state: { taskList, id }}) =>
 		[
