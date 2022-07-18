@@ -51,7 +51,7 @@ const removeTask = (context) => ({
 });
 
 const generateTask = (context) => ({
-	taskList: taskGenerator.getTasks(context),
+	taskList: taskGenerator.getTask(context),
 });
 
 const actions = {

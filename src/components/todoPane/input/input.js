@@ -4,7 +4,7 @@ const Input = ({ context }) => {
 	const { state: { input }, actions } = context;
 
 	return <span>
-		<label>Task:</label>
+		<label>Todo:</label>
 		<input
 			type="text"
 			value={ input }

@@ -5,7 +5,6 @@ const CheckBox = ({ actions, data }) =>
 		type="checkbox"
 		checked={ data.isCompleted }
 		onChange={ () => {
-			data.isCompleted = !data.isCompleted;
 			actions.toggleTodo(data);
 		} }
 	/>;

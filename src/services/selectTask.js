@@ -4,7 +4,7 @@ const selectTask = {
 			(todo.id === data.id
 				? {
 					...todo,
-					isCompleted: data.isCompleted,
+					isCompleted: !data.isCompleted,
 				}
 				: todo)),
 	selectAllTask: ({ state: { todoList }, data }) =>
