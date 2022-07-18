@@ -1,11 +1,14 @@
 import React from 'react';
+import selectTodo from '../../../services/selectTodo';
 
 const ClearCompleted = ({ context }) =>
-	<button
-		onClick={ () => {
-			context.actions.clearCompleted(context);
-			context.actions.showTabContent({ tabName: context.state.filter });
-		} }
-	>Clear Completed</button>;
+	(selectTodo.isTodoSelected(context)
+		? <div>
+			<button onClick={ () => {
+				context.actions.clearCompleted(context);
+			} }
+			>Clear Completed</button>
+		</div>
+		: []);
 
 export default ClearCompleted;

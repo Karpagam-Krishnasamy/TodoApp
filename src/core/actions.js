@@ -1,7 +1,6 @@
-import updateTask from '../services/addTask';
-import clearTask from '../services/clearTask';
-import filterTask from '../services/filterTask';
-import selectTask from '../services/selectTask';
+import updateTodoTask from '../services/addTodoTask';
+import clearTodo from '../services/clearTodoTask';
+import selectTodo from '../services/selectTodo';
 import taskGenerator from '../services/taskGenerator';
 
 const setInput = ({ data }) => ({
@@ -9,19 +8,14 @@ const setInput = ({ data }) => ({
 });
 
 const addTodoTask = (context) => ({
-	todoList: updateTask.Add(context),
+	todoList: updateTodoTask.Add(context),
 	input: '',
 });
 
-const updateTodoTask = (context) => ({
-	todoList: updateTask.Update(context),
+const updateTodo = (context) => ({
+	todoList: updateTodoTask.Update(context),
 	input: '',
 	editId: '',
-});
-
-const showTabContent = (context) => ({
-	filter: context.data.tabName,
-	filteredTask: filterTask.viewTask(context),
 });
 
 const setEdit = ({ data }) => ({
@@ -30,28 +24,32 @@ const setEdit = ({ data }) => ({
 });
 
 const toggleTodo = (context) => ({
-	todoList: selectTask.selectTask(context),
+	todoList: selectTodo.selectTodo(context),
 });
 
 const selectAll = (context) => ({
-	todoList: selectTask.selectAllTask(context),
+	todoList: selectTodo.selectAllTodo(context),
 	toggleAll: !context.state.toggleAll,
 });
 
 const clearCompleted = (context) => ({
-	todoList: clearTask.clearTask(context),
+	todoList: clearTodo.clearCompletedTodo(context),
 });
 
 const clearButton = (context) => ({
-	todoList: clearTask.clearButton(context),
+	todoList: clearTodo.clearTodo(context),
 });
 
 const removeTask = (context) => ({
-	taskList: clearTask.removeTask(context),
+	taskList: clearTodo.removeTask(context),
 });
 
 const generateTask = (context) => ({
 	taskList: taskGenerator.getTask(context),
+});
+
+const setFilter = ({ data }) => ({
+	filter: data,
 });
 
 const actions = {
@@ -59,9 +57,9 @@ const actions = {
 	setInput,
 	clearCompleted,
 	addTodoTask,
-	updateTodoTask,
+	updateTodo,
+	setFilter,
 	selectAll,
-	showTabContent,
 	toggleTodo,
 	clearButton,
 	setEdit,

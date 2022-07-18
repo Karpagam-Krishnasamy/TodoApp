@@ -1,17 +1,17 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import { React } from 'react';
+import updateTodoTask from '../../../services/addTodoTask';
 
 const UpdateButton = ({ context }) => {
-	const { state: { filter, input }, actions } = context;
+	const { state: { input }, actions } = context;
 
-	return <button
-		disabled={ (input === '') }
-		onClick={ () => {
-			actions.updateTodoTask(context);
-			actions.showTabContent({ tabName: filter });
-		} }
-	       >
-		Update</button>;
+	return (
+		<button
+			disabled={ updateTodoTask.checkInput(input) }
+			onClick={ () => {
+				actions.updateTodo(context);
+			} }
+		>
+			Update</button>);
 };
 
 export default UpdateButton;

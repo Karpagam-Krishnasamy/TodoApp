@@ -1,14 +1,14 @@
 import { React } from 'react';
+import updateTodoTask from '../../../services/addTodoTask';
 
 const AddButton = ({ context }) => {
-	const { state: { filter, input }, actions } = context;
+	const { state: { input }, actions } = context;
 
 	return (
 		<button
-			disabled={ (input === '') }
+			disabled={ updateTodoTask.checkInput(input) }
 			onClick={ () => {
 				actions.addTodoTask(context);
-				actions.showTabContent({ tabName: filter });
 			} }
 		>
 			Add</button>

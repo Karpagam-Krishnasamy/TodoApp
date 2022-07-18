@@ -1,5 +1,5 @@
 import { rndString } from '@laufire/utils/random';
-const updateTask = {
+const updateTodoTask = {
 	Add: ({ state: { input, todoList }, config: { idLength }}) =>
 		[...todoList,
 			{
@@ -15,8 +15,7 @@ const updateTask = {
 					name: input,
 				}
 				: todo)),
-	displayTask: ({ state: { filteredTask }}) =>
-		(filteredTask.length === 0 ? [] : filteredTask),
+	checkInput: (input) => input === '',
 };
 
-export default updateTask;
+export default updateTodoTask;
