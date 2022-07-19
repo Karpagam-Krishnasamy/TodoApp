@@ -7,9 +7,7 @@ const SelectAll = ({ context }) => {
 		<input
 			type="checkbox"
 			checked={ toggleAll }
-			onChange={ () => {
-				actions.selectAll(toggleAll);
-			} }
+			onChange={ () => { actions.selectAll(toggleAll); } }
 		/>
 		<span>SelectAll</span>
 	</div>;

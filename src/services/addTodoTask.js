@@ -7,6 +7,7 @@ const updateTodoTask = {
 				name: input,
 				isCompleted: false,
 			}],
+
 	Update: ({ state: { input, todoList, editId }}) =>
 		todoList.map((todo) =>
 			(todo.id === editId
@@ -15,7 +16,8 @@ const updateTodoTask = {
 					name: input,
 				}
 				: todo)),
-	checkInput: (input) => input === '',
+
+	checkData: (data) => data === '',
 };
 
 export default updateTodoTask;

@@ -6,7 +6,7 @@ const AddButton = ({ context }) => {
 
 	return (
 		<button
-			disabled={ updateTodoTask.checkInput(input) }
+			disabled={ updateTodoTask.checkData(input) }
 			onClick={ () => {
 				actions.addTodoTask(context);
 			} }

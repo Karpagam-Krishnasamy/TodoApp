@@ -7,12 +7,14 @@ const selectTodo = {
 					isCompleted: !data.isCompleted,
 				}
 				: todo)),
+
 	selectAllTodo: ({ state: { todoList }, data }) =>
 		todoList.map((todo) =>
 			({
 				...todo,
 				isCompleted: !data,
 			})),
+
 	isTodoSelected: ({ state: { todoList }}) =>
 		todoList.some((todo) => todo.isCompleted === true),
 };

@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 /* eslint-disable prefer-template */
 import { rndString } from '@laufire/utils/random';
 import faker from 'faker';
@@ -11,6 +10,7 @@ const taskGenerator = {
 
 		setTimeout(() => clearInterval(interval), timeOut);
 	},
+
 	getTask: ({ state: { taskList, id }}) =>
 		[
 			...taskList,
@@ -21,6 +21,7 @@ const taskGenerator = {
 					+ ' ' + faker.hacker.noun()),
 			},
 		],
+
 	formatTask: (text) =>
 		text.charAt(0).toUpperCase() + text.substr(1),
 };
