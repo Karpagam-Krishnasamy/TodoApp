@@ -1,11 +1,11 @@
 import AddButton from './addButton';
 import UpdateButton from './updateButton';
-import updateTodoTask from '../../../services/addTodoTask';
+import actionKeys from '../../../services/actionKeys';
 
 const ActionButton = ({ context }) => {
 	const { state: { editId }} = context;
 
-	return updateTodoTask.checkData(editId)
+	return actionKeys.checkData(editId)
 		? AddButton({ context })
 		: UpdateButton({ context });
 };

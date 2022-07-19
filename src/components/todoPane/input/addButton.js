@@ -1,12 +1,12 @@
 import { React } from 'react';
-import updateTodoTask from '../../../services/addTodoTask';
+import actionKeys from '../../../services/actionKeys';
 
 const AddButton = ({ context }) => {
 	const { state: { input }, actions } = context;
 
 	return (
 		<button
-			disabled={ updateTodoTask.checkData(input) }
+			disabled={ actionKeys.checkData(input) }
 			onClick={ () => {
 				actions.addTodoTask(context);
 			} }

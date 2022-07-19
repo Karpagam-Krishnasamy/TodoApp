@@ -7,6 +7,10 @@ const setInput = ({ data }) => ({
 	input: data,
 });
 
+const clearInput = () => ({
+	input: '',
+});
+
 const addTodoTask = (context) => ({
 	todoList: updateTodoTask.Add(context),
 	input: '',
@@ -55,6 +59,7 @@ const setFilter = ({ data }) => ({
 const actions = {
 	removeTask,
 	setInput,
+	clearInput,
 	clearCompleted,
 	addTodoTask,
 	updateTodo,

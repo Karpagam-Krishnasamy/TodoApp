@@ -17,7 +17,6 @@ const updateTodoTask = {
 				}
 				: todo)),
 
-	checkData: (data) => data === '',
 };
 
 export default updateTodoTask;
