@@ -4,9 +4,11 @@ import selectTodo from '../../../services/selectTodo';
 const ClearCompleted = ({ context }) =>
 	selectTodo.isTodoSelected(context)
 		&& <div>
-			<button onClick={ () => {
-				context.actions.clearCompleted(context);
-			} }
+			<button
+				id="clearCompleted"
+				onClick={ () => {
+					context.actions.clearCompleted(context);
+				} }
 			>Clear Completed</button>
 		</div>;
 

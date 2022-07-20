@@ -7,6 +7,7 @@ const Input = ({ context }) => {
 	return <span>
 		<label>Todo:</label>
 		<input
+			id="TodoInput"
 			type="text"
 			value={ input }
 			onChange={ (event) => actions.setInput(event.target.value) }
