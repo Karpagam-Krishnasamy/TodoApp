@@ -6,7 +6,7 @@ import TodoTask from './todoTaskName';
 
 const TabContent = ({ context }) =>
 	filterTodo.viewTodo(context).map((data) =>
-		<div key={ data.id } className="display-left">
+		<div key={ data.id } id="tabcontent" className="display-left">
 			<CheckBox { ...{ ...context, data } }/>&nbsp;
 			<TodoTask { ...{ ...context, data } }/>&nbsp;&nbsp;
 			<ClearButton { ...{ ...context, taskId: data.id } }/>

@@ -5,6 +5,7 @@ const Tab = ({ context }) =>
 	config.tabs.map((data) =>
 		<button
 			key={ data }
+			id={ data }
 			onClick={ () => context.actions.setFilter(data) }
 		>
 			{data}

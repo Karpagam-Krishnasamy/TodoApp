@@ -2,7 +2,7 @@ import { React } from 'react';
 
 const TodoTask = ({ actions, data }) =>
 	<span
-		name={ data.name }
+		id={ data.name }
 		onClick={ () => actions.setEdit(data) }
 	>
 		{data.name}</span>;
