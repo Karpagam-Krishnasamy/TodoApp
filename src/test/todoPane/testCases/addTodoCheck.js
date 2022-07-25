@@ -10,7 +10,7 @@ const driver = new Builder().forBrowser('chrome')
 driver.get('http://localhost:3002/react-starter');
 
 describe('Add Todo', () => {
-	it('Successfully adds a todo into list', async () => {
+	it('Todo is added into the list when given as input', async () => {
 		await Helper.addTodo(driver, randomTodo);
 		assert.strictEqual(await Helper.getTodo(driver)
 			.then((value) => value), randomTodo);

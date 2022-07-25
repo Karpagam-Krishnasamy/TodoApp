@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 const { Builder } = require('selenium-webdriver');
 const assert = require('assert');
 const Helper = require('../helper');
@@ -10,24 +11,27 @@ const driver = new Builder().forBrowser('chrome')
 
 driver.get('http://localhost:3002/react-starter');
 
-describe('Tab Contents Check', () => {
-	it('Successfully displays all todos', async () => {
+describe('Filter Todo', () => {
+	it('All todos are displayed when All button is clicked', async () => {
 		await Helper.addTodo(driver, randomTodo());
 		await Helper.addTodo(driver, randomTodo());
 		assert.strictEqual(await Helper.checkCount(driver, 'tabcontent'), cnt);
 	});
 
-	it('Successfully displays active todos', async () => {
+	it('Active todos are displayed when Active button is clicked', async () => {
 		await Helper.clickButton(driver, 'Active');
 		assert.strictEqual(await Helper.checkCount(driver, 'tabcontent'), cnt);
 	});
 
-	it('Successfully displays completed todos', async () => {
-		await Helper.clickButton(driver, 'Completed');
-		assert.strictEqual(await Helper.checkCount(driver, 'tabcontent'), 0);
-		await Helper.clickButton(driver, 'All');
-		await Helper.clickButton(driver, 'checkbox');
-		await Helper.clickButton(driver, 'Completed');
-		assert.strictEqual(await Helper.checkCount(driver, 'tabcontent'), 1);
-	});
+	it('Completed todos are displayed when Completed button is clicked',
+		async () => {
+			await Helper.clickButton(driver, 'Completed');
+			assert.strictEqual(await Helper.checkCount(driver, 'tabcontent')
+				, 0);
+			await Helper.clickButton(driver, 'All');
+			await Helper.clickButton(driver, 'checkbox');
+			await Helper.clickButton(driver, 'Completed');
+			assert.strictEqual(await Helper.checkCount(driver, 'tabcontent')
+				, 1);
+		});
 });

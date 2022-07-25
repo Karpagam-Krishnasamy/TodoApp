@@ -11,16 +11,19 @@ const driver = new Builder().forBrowser('chrome')
 driver.get('http://localhost:3002/react-starter');
 
 describe('Toggle All Todo', () => {
-	it('Select All not displayed as expected', async () => {
+	it('Select All is not displayed before adding a todo', async () => {
 		assert.strictEqual(await Helper.checkCount(driver, 'selectall'), 0);
 	});
-	it('Successfully displayed Select All', async () => {
+
+	it('Select All is displayed when a todo is added', async () => {
 		await Helper.addTodo(driver, randomTodo());
 		assert.strictEqual(await Helper.checkCount(driver, 'selectall'), 1);
 	});
-	it('Successfully selects all todo', async () => {
-		await Helper.addTodo(driver, randomTodo());
-		await Helper.clickButton(driver, 'selectall');
-		assert.strictEqual(await Helper.checkedCount(driver), count);
-	});
+
+	it('All todos are selected when Select All checkbox is checked'
+		, async () => {
+			await Helper.addTodo(driver, randomTodo());
+			await Helper.clickButton(driver, 'selectall');
+			assert.strictEqual(await Helper.checkedCount(driver), count);
+		});
 });

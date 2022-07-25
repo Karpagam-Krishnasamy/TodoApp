@@ -11,7 +11,7 @@ const driver = new Builder().forBrowser('chrome')
 driver.get('http://localhost:3002/react-starter');
 
 describe('Update Todo', () => {
-	it('Successfully displays clicked todo in input', async () => {
+	it('Todo is populated in input field when a todo is clicked', async () => {
 		await Helper.addTodo(driver, randomTodo);
 		await Helper.clickButton(driver, randomTodo);
 		assert.strictEqual(await Helper.getElement(driver, 'TodoInput')
@@ -20,7 +20,7 @@ describe('Update Todo', () => {
 				value), randomTodo);
 	});
 
-	it('Successfully updates todo', async () => {
+	it('Todo is updated when the populated todo is changed', async () => {
 		await Helper.addTodo(driver, randomTodo);
 		assert.strictEqual(await Helper.getTodo(driver)
 			.then((value) => value), randomTodo + randomTodo);

@@ -10,20 +10,21 @@ const driver = new Builder().forBrowser('chrome')
 driver.get('http://localhost:3002/react-starter');
 
 describe('Remove Todo', () => {
-	it('Remove button not displayed as expected', async () => {
+	it('Remove button is not displayed before adding a todo', async () => {
 		assert.strictEqual(await Helper
 			.checkCount(driver, 'removeButton'), 0);
 	});
 
-	it('Successfully displayed remove button', async () => {
+	it('Remove button is displayed beside an added todo', async () => {
 		await Helper.addTodo(driver, randomTodo);
 		assert.strictEqual(await Helper
 			.checkCount(driver, 'removeButton'), 1);
 	});
 
-	it('Successfully deletes todo', async () => {
-		await Helper.clickButton(driver, 'removeButton');
-		assert.strictEqual(await Helper
-			.checkCount(driver, randomTodo), 0);
-	});
+	it('Todo is removed when corresponding remove button is clicked',
+		async () => {
+			await Helper.clickButton(driver, 'removeButton');
+			assert.strictEqual(await Helper
+				.checkCount(driver, randomTodo), 0);
+		});
 });
