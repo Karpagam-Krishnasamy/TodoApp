@@ -17,6 +17,9 @@ const selectTodo = {
 
 	isTodoSelected: ({ state: { todoList }}) =>
 		todoList.some((todo) => todo.isCompleted === true),
+
+	isActiveTodoExist: ({ state: { todoList }}) =>
+		todoList.some((todo) => todo.isCompleted === false),
 };
 
 export default selectTodo;

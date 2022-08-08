@@ -33,7 +33,6 @@ const toggleTodo = (context) => ({
 
 const selectAll = (context) => ({
 	todoList: selectTodo.selectAllTodo(context),
-	toggleAll: !context.data,
 });
 
 const clearCompleted = (context) => ({
