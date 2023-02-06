@@ -1,12 +1,15 @@
+import { remove } from '../lib/store';
+
 const clearTask = {
 	clearCompletedTodo: ({ state: { todoList }}) =>
-		todoList.filter((todo) => todo.isCompleted === false),
+		remove(todoList, { isCompleted: true }),
 
-	clearTodo: ({ state: { todoList }, data: taskId }) =>
-		todoList.filter((todo) => todo.id !== taskId),
+	clearTodo: ({ state: { todoList }, data }) =>
+		remove(todoList, { id: data }),
 
 	removeTask: ({ state: { taskList }, data }) =>
-		taskList.filter((task) => task.id !== data),
+		remove(taskList, { id: data }),
+
 };
 
 export default clearTask;

@@ -1,21 +1,20 @@
 import { rndString } from '@laufire/utils/random';
+import { add, update } from '../lib/store';
+
+const getTodo = ({ input, idLength }) => ({
+	id: rndString(idLength),
+	name: input,
+	isCompleted: false,
+});
+
 const updateTodoTask = {
 	Add: ({ state: { input, todoList }, config: { idLength }}) =>
-		[...todoList,
-			{
-				id: rndString(idLength),
-				name: input,
-				isCompleted: false,
-			}],
+		add(todoList, getTodo({ input, idLength })),
 
 	Update: ({ state: { input, todoList, editId }}) =>
-		todoList.map((todo) =>
-			(todo.id === editId
-				? {
-					...todo,
-					name: input,
-				}
-				: todo)),
+		update(
+			todoList, editId, { name: input }
+		),
 
 };
 

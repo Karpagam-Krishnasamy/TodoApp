@@ -48,7 +48,7 @@ const removeTask = (context) => ({
 });
 
 const generateTask = (context) => ({
-	taskList: taskGenerator.getTask(context),
+	taskList: taskGenerator.addTask(context),
 });
 
 const setFilter = ({ data }) => ({
