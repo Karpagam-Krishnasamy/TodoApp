@@ -7,7 +7,11 @@ import App from './App';
 import context from './core/context';
 
 const Entry = () => {
-	const [state, setState] = useState(context.seed);
+	const storedState = JSON.parse(localStorage.getItem('state'));
+
+	const [state, setState] = useState(storedState
+	? storedState
+	: context.seed);
 
 	useEffect(context.init, []);
 	updateContext(context, { state, setState });
